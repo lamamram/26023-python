@@ -1,7 +1,7 @@
+# %%
 # module standard: pas besoin d'utiliser pip
 import json
 # module tiers: installé à partir de pip, dans l'environnement virtuel
-import requests
 
 user_data = {
   "name": "John Doe",
@@ -12,6 +12,9 @@ user_data = {
 # sérialiaser en json
 # json_string = json.dumps(user_data)
 # print(json_string, type(json_string))
+
+# %%
+import requests
 
 response = requests.get("https://www.dawan.fr/")
 
