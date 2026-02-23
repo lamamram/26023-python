@@ -110,12 +110,47 @@ import random
 
 # liste en intension
 rows = [ f"row_{i}" for i in range(1, 21) ]
+rows.append("line_21")
 random.shuffle(rows)
-rows
+print(rows)
 
 # trier la liste rows dans l'ordre décroissant 
 # des entiers à la fin de chaque chaine de caractère
-sorted(rows, key=lambda "???")
+sorted(rows, key=lambda r: int(r[r.index("_") + 1:]), reverse=True)
 
+
+# %%
+## cellule de draft de la cellule précédente
+s = "line_21"
+# position du underscore dans la chaine de caractère
+# convertir ce truc en int
+
+pos_underscore = s.index("_")
+index_start = pos_underscore + 1
+motif_a_detecter = s[index_start:]
+entier = int(motif_a_detecter)
+
+int(s[s.index("_") + 1:])
+
+# %%
+# usages principaux: réduction => transformer un tableau de nb en scalaire
+
+from functools import reduce
+
+## la somme de tous les éléments d'une liste
+numbers = list(range(1, 11))
+
+# reduce applique la lambda de proche en proche sur les éléments de la liste
+#    acc x    acc + x
+# 1/ 1 + 2 => 3
+# 2/ 3 + 3 => 6
+# ... => 55
+reduce(lambda acc, x: acc + x, numbers)
+
+## variance de la liste numbers (https://fr.wikipedia.org/wiki/Variance_(math%C3%A9matiques))
+# trouver la formule LateX de la variance en markdown
+mean = reduce(lambda acc, x: acc + x, numbers) / len(numbers)
+var = reduce(lambda acc, x: acc + (x - mean)**2, numbers) / len(numbers)
+print(var)
 
 # %%
