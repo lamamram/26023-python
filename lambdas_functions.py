@@ -81,6 +81,7 @@ print(my_map(square, numbers))
 
 # %%
 # fonctions lambdas: fonctions sans nom, à usage unique
+# syntaxe: lambda <paramètres>: <expression>
 
 numbers = [1, 2, 3, 4, 5]
 def my_map(f: "function", objs: list) -> list:

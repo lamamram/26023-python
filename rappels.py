@@ -110,4 +110,19 @@ print(create_user(*parameters))
 kwds = {"name": "John Doe", "date_birth": "1981-05-22"}
 # les clés du dictionnaire doivent correspondre aux noms des paramètres de la fonction
 print(create_user(**kwds))
+
+# %%
+# instruction vs expression
+
+## une expression est une construction syntaxique qui retourne une valeur
+## peut être mis en paramètre dans print => évaluable
+
+## valeur littérale | variable | appel de fonction | expression conditionnelle | expression lambda | combinaison de ces éléments
+x = 5
+def add(a, b):
+  return a + b
+print(5, x, x + 5, "machin".upper(), add(2, 3))
+
+# TypeError print(x = 5)
+# SyntaxError print(if x < 5: x = 2)
 # %%
