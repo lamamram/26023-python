@@ -44,7 +44,7 @@ if __name__ == "__main__":
   
   try:
     print(crypto.brute_force(secret))
-  except ValueError as e:
+  except (ValueError, ZeroDivisionError) as e:
     print(e)
   except TypeError as e:
     print(f"spécial pour les erreurs de types: {e}")

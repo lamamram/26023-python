@@ -9,7 +9,8 @@ def sign(target: str) -> str:
   octets = bytes(target, "utf8")
   return md5(octets).hexdigest()
 
-@error_logger
+# @error_logger
+@error_logger(ValueError)
 def brute_force(secret: str):
   for i in itertools.count(1):
     logging.debug(f"longueur: {i}")
