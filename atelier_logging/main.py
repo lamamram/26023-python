@@ -1,4 +1,5 @@
 """
+A EXECUTER EN PLACANT LE TERMINAL DANS LE DOSSIER atelier_logging
 programme principal: qui configure un fichier de log
 pour enregistrer des événements dans le programme (résultats attendus, erreurs, debug, ...)
 """
