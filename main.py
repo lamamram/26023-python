@@ -26,7 +26,7 @@ logging.basicConfig(
   filename="log.txt",
   # les messages loggés doivent avoir le niveau de sévérité minimum INFO
   level=SEVERITY,
-  format="%(asctime)s - %(levelname)s : %(message)s"
+  format="%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s : %(message)s"
 )
 
 # collision possible
