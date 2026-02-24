@@ -126,3 +126,12 @@ print(5, x, x + 5, "machin".upper(), add(2, 3))
 # TypeError print(x = 5)
 # SyntaxError print(if x < 5: x = 2)
 # %%
+
+# transformations réciproque str <=> list, tuple
+
+target = "le petit chat est mort"
+words = target.split()
+
+" ".join(words)
+
+# %%

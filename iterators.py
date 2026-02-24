@@ -104,24 +104,30 @@ import itertools
 
 # il faut tester tous les mots (association de lettres) de longueurs 1, 2, 3, ...
 # jusqu'à trouver une signature égale à celle du secret
-# attention: les itérateurs génèrent beaucoup de valeurs !!!
+# attention: les itérateurs génèrent beaucoup de valeurs
 
+def sign(target: str) -> str:
+  # transformer la chaine de caractère UTF-8 en tableau d'octet
+  octets = bytes(target, "utf8")
+  # générer la signature et on la convertit en str en hexadécimal
+  return md5(octets).hexdigest()
+
+# utiliser une fonction avec le return est plus astucieux que plusieurs break successifs
+def brute_force():
+  for i in itertools.count(1):
+    for tup in itertools.product(ascii_lowercase, repeat=i):
+      word = "".join(tup)
+      if sign(word) == secret:
+        # c'est gagné donc on peut terminer la fonction
+        return word
 
 # section principale du programme
 if __name__ == "__main__":
   # mot de passe de lettres en minuscules signé par l'algo md5
   secret = "3ed7dceaf266cafef032b9d5db224717"
+  print(brute_force())
 
-  ## exemple
-  target = "exemple"
-  # transformer la chaine de caractère UTF-8 en tableau d'octet
-  octets = bytes(target, "utf-8")
-  # générer la signature et on la convertit en str en hexadécimal
-  hash = md5(octets).hexdigest()
-  print(hash)
-
-
-
-
-
+# %%
+#
+"".join(('a', 'a'))
 # %%
