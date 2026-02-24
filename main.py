@@ -7,7 +7,7 @@ pour enregistrer des événements dans le programme (résultats attendus, erreur
 # tant que le contenu du module importé ne change pas alors 
 # on exécute directement le fichier .pyc dans le dossier __pycache__ (+ rapide)
 # import imported_module
-
+import sys
 import logging
 # import avec espace de nom => protection contre les collisions de nom
 import crypto
@@ -15,12 +15,17 @@ import crypto
 # from crypto import brute_force
 # from crypto import brute_force as bf => alias pour gérer une collision
 
+
+# liste des arguments de la commande python
+SEVERITY = logging.INFO if "--debug" not in sys.argv else logging.DEBUG
+
 # configurer le fichier de log ici
 # niveaux de sevérité: debug, info, warning, error, critical
-# format
+# format: propriétés attendus dans le message: ici date - severité: message
 logging.basicConfig(
   filename="log.txt",
-  level=logging.INFO,
+  # les messages loggés doivent avoir le niveau de sévérité minimum INFO
+  level=SEVERITY,
   format="%(asctime)s - %(levelname)s : %(message)s"
 )
 
