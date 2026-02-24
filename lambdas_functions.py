@@ -59,6 +59,13 @@ print(f"écart type de (3, 10): {std}")
 
 numbers = [1, 2, 3, 4, 5]
 
+
+def my_map(f: "function", objs: list) -> list:
+  transformed = []
+  for obj in objs:
+    transformed.append(f(obj))
+  return transformed
+
 def square(x: float) -> float:
   return x**2
 
@@ -68,11 +75,6 @@ def square(x: float) -> float:
 #   squares.append(square(nb))
 # print(squares)
 
-def my_map(f: "function", objs: list) -> list:
-  transformed = []
-  for obj in objs:
-    transformed.append(f(obj))
-  return transformed
 
 ## façon programmation fonctionnelle
 ## y = f ° g(x) = f(g(x))
