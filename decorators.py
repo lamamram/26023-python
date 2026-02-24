@@ -1,8 +1,8 @@
 # %%
 # exemple graphique
 
-# un décorateur est une fonction qui remplacer une fonction
-# par une autre qui modifie le coportement de le première
+# un décorateur est une fonction qui remplace une fonction
+# par une autre qui modifie le comportement de le première
 
 def strong(f: "function"):
   # remplacer la fonction f par une fonction qui
@@ -27,18 +27,20 @@ def to_join(words: list[str]) -> str:
 # @ est la même chose que => remplacement
 # to_upper = strong(to_upper)
 
-## factorisation du strong dans une famille de fonction
+## BUT: factorisation du strong dans une famille de fonction
 
 to_upper("bonjour tout le monde")
 
 to_join(["salut", "les", "gens"])
 
-# avec cette technique je fois utiliser strong à chaque fois
 
-# def strong(message: str):
-#   return "<strong>" + message + "</strong>"
+# %%
+# avec cette technique c'est plus simple MAIS je dois utiliser strong à chaque fois
 
-# strong(to_upper("bonjour tout le monde"))
+def strong(message: str):
+  return "<strong>" + message + "</strong>"
+
+strong(to_upper("bonjour tout le monde"))
 
 # %%
 # accumuler des décorateurs
