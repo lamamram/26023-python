@@ -41,5 +41,12 @@ if __name__ == "__main__":
   ## print(dir(imported_module))
   ## print(f"nom du module importé: {imported_module.__name__}")
   secret = "3ed7dceaf266cafef032b9d5db224717"
-
-  print(crypto.brute_force(secret))
+  
+  try:
+    print(crypto.brute_force(secret))
+  except ValueError as e:
+    print(e)
+  except TypeError as e:
+    print(f"spécial pour les erreurs de types: {e}")
+  except Exception as e:
+    print("capture tout sauf value et type")
