@@ -179,3 +179,33 @@ else:
   print("faux")
 
 # %%
+
+# int, float str, tuple => immutable
+
+immutable = "bonjour"
+# impossible car immutable
+# immutable[0] = "B"
+# capitalize => retourne la valeur avec B 
+# MAIS ne modifie la chaine de caractère
+# DONC il faut réaffecter la trasformat° dans la var
+immutable = immutable.capitalize()
+print(f"transformation immutable: {immutable}")
+
+# list, dict => mutable
+
+mutable = [-1, 2, 3]
+# remplacer -1 par 1 => je modifie un élément de la liste, 
+# sans réaffecter la liste elle même
+mutable[0] = 1
+print(f"transformation mutable: {mutable}")
+
+# %%
+## souvent les fonctions sur les mutables (list, dict)
+# ne retournent RIEN car elles modifient directement la variable
+
+## les fonctions sur les immutables retourent TOUJOURS qqch
+# PUISQUE elles ne peuvent pas modifier directement la variable
+
+print(mutable.append(4))
+print(mutable)
+# %%

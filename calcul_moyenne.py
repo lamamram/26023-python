@@ -15,6 +15,7 @@ liste = liste.split(",")
 # %%
 int_list = []
 for elem in liste:
+  elem = elem.strip()
   if elem.isnumeric() or (elem[0] == "-" and elem[1:].isnumeric()):
     int_list.append(int(elem))
   else:
@@ -23,5 +24,5 @@ for elem in liste:
 
 # %%
 if int_list:
-  moyenne = round(sum(int_list)/len(int_list))
+  moyenne = round(sum(int_list)/len(int_list), 2)
   print(moyenne)
