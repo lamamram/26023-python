@@ -151,3 +151,21 @@ octets = b"ma chaine"
 # pour voir les codes ascii <=> lettres
 ord("a"), chr(97)
 # %%
+
+## n'importe quelle EXPRESSION peut utiliser les attributs d'un type ou d'une classe
+
+# valeurs litérales
+
+"bonjour".upper()
+
+# variables
+mot = "bonjour"
+mot.upper()
+
+# expression qui retourne un str
+
+print((mot + " les gens").upper())
+
+print(mot[2:4].upper())
+
+# %%
