@@ -10,9 +10,9 @@ que ces valeurs sont des entiers relatifs
 """
 
 liste = input("saisissez des entiers relatifs séparés par ,")
-
 liste = liste.split(",") 
 
+# %%
 int_list = []
 for elem in liste:
   if elem.isnumeric() or (elem[0] == "-" and elem[1:].isnumeric()):
@@ -21,6 +21,7 @@ for elem in liste:
     print(f"erreur: {elem}")
     break
 
+# %%
 if int_list:
   moyenne = round(sum(int_list)/len(int_list))
   print(moyenne)

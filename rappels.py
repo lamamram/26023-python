@@ -169,3 +169,13 @@ print((mot + " les gens").upper())
 print(mot[2:4].upper())
 
 # %%
+
+# valeurs booléennes de chaque type
+# 0, 0., "", [], (), {}
+x = ()
+if x:
+  print("vrai")
+else:
+  print("faux")
+
+# %%
