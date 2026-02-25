@@ -15,9 +15,12 @@ liste = liste.split(",")
 
 int_list = []
 for elem in liste:
-  if elem.isnumeric():
+  if elem.isnumeric() or (elem[0] == "-" and elem[1:].isnumeric()):
     int_list.append(int(elem))
   else:
-    print("erreur")
+    print(f"erreur: {elem}")
+    break
 
-print(int_list)
+if int_list:
+  moyenne = round(sum(int_list)/len(int_list))
+  print(moyenne)
