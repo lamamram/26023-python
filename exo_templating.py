@@ -45,3 +45,32 @@ print(_template)
 
 
 # %%
+
+def parse_template(
+        tpl: str, 
+        values: dict, 
+        delim: tuple=("{{","}}"), 
+        default: str="N/A",
+        **opts
+) -> str:
+    """
+    fonction d'interprétation d'un fichier template pour injecter
+    des valeurs venues d'un diction
+    **opts: "debug", "log", ...
+    """
+    while tpl.count(delim[0]):
+        start_index = tpl.index(delim[0])
+        end_index = tpl.index(delim[1])
+        key = tpl[start_index + len(delim[0]):end_index]
+        if "debug" in opts and opts["debug"]:
+            print(f"key: {key}")
+        val = values.get(key, default)
+
+        tpl = tpl.replace(delim[0] + key + delim[1], str(val))
+    return tpl
+
+# %%
+
+print(parse_template(_template, injections, ("((","))"), "N/A"))
+
+# %%
