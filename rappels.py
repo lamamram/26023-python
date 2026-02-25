@@ -208,4 +208,23 @@ print(f"transformation mutable: {mutable}")
 
 print(mutable.append(4))
 print(mutable)
+
+
+# %%
+## gérer une clé inexistante dans un dict
+
+user = {"name": "matt", "age": 43} #, "email": "mlamamra@dawan.fr"}
+# print(user["email"]) => KeyError
+
+
+print("name" in user)
+# option A: avec l'opérateur in => fonctionne avec les clés
+if "email" in user:
+  print(user["email"])
+else:
+  print("rh@dawan.fr")
+
+# option B: la fonction get demande la valeur de la clé (s'il existe) OU une valeur par défaut
+print(user.get("email", "rh@dawan.fr"))
+
 # %%
