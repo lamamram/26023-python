@@ -32,3 +32,16 @@ key = _template[start_index:end_index]
 
 # ----------------      OLD        ,       NEW
 _template.replace("((" + key + "))", injections[key])
+
+# %%
+
+while "((" in _template:
+  start_index = _template.index("((") + len("((")
+  end_index = _template.index("))")
+  key = _template[start_index:end_index]
+  _template = _template.replace("((" + key + "))", injections.get(key, "N/A"))
+
+print(_template)
+
+
+# %%
