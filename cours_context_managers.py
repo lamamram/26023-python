@@ -22,7 +22,7 @@ query = "SELECT SQLITE_VERSION()"
 cur.execute(query)
 row = cur.fetchone()
 print(row)
-# fermeture
+# fermeture: pour éviter les fuites de mémoire (memory leaks)
 conn.close()
 # %%
 # idem avec un gestionnaire de contexte
