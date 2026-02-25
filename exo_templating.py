@@ -24,3 +24,9 @@ injections = {
     "section": "30",
     "debit": "2"
 }
+
+# %%
+start_index = _template.index("((") + len("((")
+end_index = _template.index("))")
+key = _template[start_index:end_index]
+_template.replace("((" + key + "))", injections[key])
