@@ -135,3 +135,19 @@ words = target.split()
 " ".join(words)
 
 # %%
+
+# transformer une chaine de caractère <=> tableau d'octet (sans encodage)
+
+target = "ma chaine"
+octets = bytes(target, "utf8")
+octets.decode("utf8")
+
+# %%
+# possible pour les caractère ascii
+# ASCII: caractère de base a-zA-Z0-9,;:!... (255 caractères)
+# il sont encodé sur UN SEUL OCTET 
+octets = b"ma chaine"
+
+# pour voir les codes ascii <=> lettres
+ord("a"), chr(97)
+# %%
