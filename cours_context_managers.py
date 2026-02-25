@@ -30,6 +30,7 @@ conn.close()
 with sqlite3.connect("dns.db") as conn:
   cur = conn.cursor()
   query = "SELECT SQLITE_VERSION()"
+  # exécute une SEULE REQUETE SQL
   cur.execute(query)
   row = cur.fetchone()
   print(row)
@@ -37,3 +38,14 @@ with sqlite3.connect("dns.db") as conn:
 # le close() est automatique
 
 # %%
+## générer les tables et insérer les données à partir d'un script
+with sqlite3.connect("dns.db") as conn:
+  cur = conn.cursor()
+  with open("domain_names_sqlite3.sql", "r", encoding="utf-8") as f:
+    # lire le contenu du fichier dans une variable
+    script = f.read()
+  # exécute un ensemble de requêtes
+  cur.executescript(script)
+  # nb d'éléments modifiés (crées/modifiés/supprimés)
+  print(f"nb d'éléments insérés: {cur.rowcount}")
+
