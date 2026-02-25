@@ -29,4 +29,6 @@ injections = {
 start_index = _template.index("((") + len("((")
 end_index = _template.index("))")
 key = _template[start_index:end_index]
+
+# ----------------      OLD        ,       NEW
 _template.replace("((" + key + "))", injections[key])
