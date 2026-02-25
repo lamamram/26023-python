@@ -8,3 +8,16 @@ que ces valeurs sont des entiers relatifs
 4/ calculer la moyenne depuis la liste
 5/ présenter le résultat avec 2 chiffres sign.  
 """
+
+liste = input("saisissez des entiers relatifs séparés par ,")
+
+liste = liste.split(",") 
+
+int_list = []
+for elem in liste:
+  if elem.isnumeric():
+    int_list.append(int(elem))
+  else:
+    print("erreur")
+
+print(int_list)
