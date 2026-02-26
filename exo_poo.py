@@ -43,3 +43,4 @@ une syntaxe simple à utiliser.
 
 
 # %%
+liste = list()
