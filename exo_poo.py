@@ -45,5 +45,5 @@ une syntaxe simple à utiliser.
    cleaned_text = cleaner.clean()
    counter = Counter(cleaned_text)
    occurences = counter.count()
-   print(occurences)   
+   print(occurences)
 # %%

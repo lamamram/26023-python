@@ -13,4 +13,8 @@ class Counter:
         else:
           occurences[word] = 1
       
-      return occurences
+      return dict(sorted(
+        occurences.items(), 
+        key=lambda tup: tup[1], 
+        reverse=True)[:5]
+      )
