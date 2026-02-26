@@ -5,5 +5,5 @@ __pycache__/
 *.pyd
 workdir/
 log.txt
-data.csv
+data.*
 *.db
