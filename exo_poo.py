@@ -66,7 +66,7 @@ une syntaxe simple à utiliser.
    # => counter ne doit connaître que l'interface publique de cleaner => ses méthodes publiques
    cleaner = Cleaner(text, min_length=3)
    counter = Counter(cleaner)
-   occurences = counter.count()   
+   occurences = counter.count()
    
    print(occurences)
    
