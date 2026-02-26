@@ -58,3 +58,9 @@ regex_email = r"[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-])*@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_+
 
 print(re.search(regex_email, "matthieu.lamamra@yahoo.fr"))
 # %%
+
+document_compromettant = "password: admin1234"
+
+document_compromettant = re.sub("admin[0-9]+", "*******", document_compromettant)
+print(document_compromettant)
+# %%
