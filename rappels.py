@@ -228,3 +228,37 @@ else:
 print(user.get("email", "rh@dawan.fr"))
 
 # %%
+
+## EN PYTHON TOUT EST UN OBJET
+
+x = 2
+print(x, type(x))
+
+print("attributs de x:", dir(x))
+
+# is_interger = attribute de type fonction => méthode
+# une fonction est un objet qui peut utiliser l'opérateur ()
+x.is_integer(), x.real, x.imag
+# %%
+
+## une fonction ou une classe est un objet appelé "callable"
+# in contient la méthode __call__ qui permet d'utiliser l'opérateur ()
+
+dir(print)
+
+class Truc:
+  pass
+t = Truc()
+dir(Truc)
+
+
+# %%
+# fonction globale ou méthodes ?
+
+target = "le petit chat est mort"
+# longueur
+len(target)
+
+# en majuscule
+target.upper()
+
