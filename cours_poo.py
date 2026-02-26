@@ -161,3 +161,55 @@ on instancie un objet à partir de la classe et on lui donne des valeurs
 <-----                                  
 
 """
+
+# %%
+
+from datetime import datetime, timedelta
+
+
+class Person:
+  
+  def __init__(self, first_name: str, last_name: str):
+    self.__first_name = first_name
+    self.__last_name = last_name
+  
+  def get_full_name(self):
+    return f"{self.__first_name.capitalize()} {self.__last_name.upper()}"
+
+class Client(Person):
+
+  def __init__(self, id: int, first_name: str, last_name: str, date_joint: str):
+    self.__id = id
+
+    # super => appelle une méthode de la classe parente (Person) 
+    # sur l'objet courant ( de Client)
+    super().__init__(first_name, last_name)
+    
+    # self.__first_name = first_name
+    # self.__last_name = last_name
+    
+    self.__date_joint = datetime.strptime(date_joint, "%Y-%m-%d")
+
+  # cette méthode magique est exécutée par str() ou print() qui utilise str()
+  def __str__(self):
+    return f"""Client {self.__id}: 
+{self.get_full_name()}
+inscrit le {self.__date_joint.strftime('%Y-%m-%d')}
+"""
+  
+  # def get_full_name(self):
+  #   return f"{self.__first_name.capitalize()} {self.__last_name.upper()}"
+  
+  def get_seniority(self) -> int:
+    now = datetime.now()
+    seniority = now - self.__date_joint
+    return seniority.days // 365
+
+cl = Client(12345, "john", "doe", "2020-01-01")
+
+print(cl.get_full_name())
+print(cl.get_seniority())
+
+print(cl)
+
+# %%

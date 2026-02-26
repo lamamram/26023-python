@@ -58,7 +58,9 @@ def parse_template(
     des valeurs venues d'un diction
     **opts: "debug", "log", ...
     """
-    while tpl.count(delim[0]):
+    # plus optimisé
+    while '((' in tpl:
+    # while tpl.count(delim[0]):
         start_index = tpl.index(delim[0])
         end_index = tpl.index(delim[1])
         key = tpl[start_index + len(delim[0]):end_index]
