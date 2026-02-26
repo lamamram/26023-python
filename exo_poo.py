@@ -19,8 +19,10 @@
 5. écrire le programme principal pour utiliser le package
 """
 # %%
+
 from text_analyzer.text_cleaner import Cleaner
 from text_analyzer.word_counter import Counter
+import text_analyzer.text_cleaner
 
 if __name__ == "__main__":
    text = """
@@ -41,9 +43,34 @@ par macOS, ou encore Android, iOS, et peut aussi être traduit en Java ou .NET.
 Il est conçu pour optimiser la productivité des programmeurs en offrant des outils de haut niveau et 
 une syntaxe simple à utiliser. 
 """
-   cleaner = Cleaner(text)
-   cleaned_text = cleaner.clean()
-   counter = Counter(cleaned_text)
-   occurences = counter.count()
+   ## types de couplages d'objets en POO
+
+   ## 1. cleaner et counter ne connaissent pas: pas de couplage
+   # PB: le counter a besoin d'un texte néttoyé pour faire son travail
+   # cleaner = Cleaner(text)
+   # cleaned_text = cleaner.clean()
+   
+   # counter = Counter(cleaned_text)
+   # occurences = counter.count()
+
+   ## 2. le counter utilise directemnt le cleaner dans __init__: couplage fort
+   # PB: si on ajoute un paramètre positionnel au __init__ de Cleaner 
+   # => counter ne fonctionne plus
+   
+   # => prog. princpal simple mais pb de maintenabilité
+   # counter = Counter(text, min_length=2)
+   # occurences = counter.count()
+
+   ## 3. le counter utilise un objet cleaner déjà instancié en paramètre dans __init__
+   # => c'est le principe d'injection de dépendance
+   # => counter ne doit connaître que l'interface publique de cleaner => ses méthodes publiques
+   cleaner = Cleaner(text, min_length=3)
+   counter = Counter(cleaner)
+   occurences = counter.count()   
+   
    print(occurences)
+   
+   
+   # print(dir(text_analyzer.text_cleaner))
+   # print(dir(Cleaner))
 # %%

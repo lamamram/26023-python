@@ -2,8 +2,9 @@ from string import punctuation
 import re
 
 class Cleaner:
-    def __init__(self, text):
+    def __init__(self, text, min_length=3):
         self.__text = text
+        self.__min_length = min_length
 
     def __clean_punctuation(self):
         self.__text = re.sub(f"[{punctuation}]", " ", self.__text)
@@ -16,7 +17,7 @@ class Cleaner:
     
     def __clean_little_words(self):
         words = self.__text.split()
-        words = list(filter(lambda word: len(word) > 3, words))
+        words = list(filter(lambda word: len(word) > self.__min_length, words))
         self.__text = " ".join(words)
 
     def clean(self):
