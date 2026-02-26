@@ -54,4 +54,7 @@ print(re.search(protcol_http_regex, "https://example.com"))
 # %%
 # matthieu.lamamra@yahoo.fr
 # \ : caractère d'échappement pour les caractères spéciaux
-regex_email = "[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-])*@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_+-])*\.[a-zA-Z]{2,}"
+regex_email = r"[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-])*@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_+-])*\.[a-zA-Z]{2,}"
+
+print(re.search(regex_email, "matthieu.lamamra@yahoo.fr"))
+# %%
