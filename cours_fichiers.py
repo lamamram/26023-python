@@ -73,5 +73,15 @@ with open("data.csv", "w", encoding="utf-8", newline="") as f:
   # records = list(map(lambda user: list(user.values()), users))
   # writer.writerows(records)
 
+## LECON DE CHOSE: 
+##  quand on a q'un marteau, on voit tous les problèmes comme des clous
+##  option C: utiliser csv.DictWriter => le bon writer pour écrire une liste de dicts
+with open("data.csv", "w", encoding="utf-8", newline="") as f:
+  writer = csv.DictWriter(
+    f, delimiter=";", quotechar='"', quoting=csv.QUOTE_MINIMAL, 
+    fieldnames=users[0].keys()
+  )
+  writer.writeheader()
+  writer.writerows(users)
 
 # %%
