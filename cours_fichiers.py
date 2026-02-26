@@ -53,6 +53,8 @@ import csv
 
 # csv.reader() # pour lire un csv
 # csv.writer() # pour écrire dans un csv
+# csv.DictWriter() # pour écrire dans un csv à partir d'une liste de dicts
+# csv.DictReader() # pour lire un csv et obtenir une liste de dicts
 
 users = [
   {"id": 1, "first_name": "Jean", "last_name": "Dupont", "age": 30, "comment": "blabla; blabla"},
@@ -84,4 +86,31 @@ with open("data.csv", "w", encoding="utf-8", newline="") as f:
   writer.writeheader()
   writer.writerows(users)
 
+# %%
+# lecteur csv
+# ici il faut trouver l'encodage du fichier csv
+with open("data.csv", "r", encoding="utf-8") as f:
+  # avec le writer, le délimiter est un choix, 
+  # avec le reader, il faut trouver le séparateur utilisé pour pouvoir lire le csv correctement
+  reader = csv.reader(f, delimiter=";", quotechar='"')
+  # reader est un itérable
+  # extraire le header avec de boucler sur les lignes de données
+  header = next(reader)
+  rows = []
+  for row in reader:
+    rows.append(row)
+print(f"header: {header}")
+print(rows)
+    
+# %%
+
+## créer un dictionnaire 
+# à partir d'une liste de clés 
+# et une liste de valeurs
+
+keys = ["id", "first_name", "last_name", "age", "comment"]
+values = [1, "Jean", "Dupont", 30, "blabla; blabla"]
+
+z = zip(keys, values)
+print(dict(z))
 # %%
