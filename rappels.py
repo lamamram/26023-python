@@ -262,3 +262,49 @@ len(target)
 # en majuscule
 target.upper()
 
+
+# %%
+
+# variations sur les boucles for
+
+fruits = ["pomme", "poire", "orange", "kiwi", "fraise"]
+
+#1. technique classique en conservant la première liste
+fruits_upper = []
+for fruit in fruits:
+  fruits_upper.append(fruit.upper())
+print(fruits_upper)
+
+#2. technique classique en modifiant la première liste
+for index in range(len(fruits)):
+  fruits[index] = fruits[index].upper()
+
+print(fruits)
+# %%
+
+fruits = ["pomme", "poire", "orange", "kiwi", "fraise"]
+
+#3. utilisation la fonciton enumerate() pour boucler sur les index ET les éléments de la liste
+
+print(list(enumerate(fruits)))
+
+for index, fruit in enumerate(fruits):
+  fruits[index] = fruit.upper()
+
+print(fruits)
+
+
+#4. liste en compréhension
+## en compréhension: on créé une liste à partir d'une règle de construction 
+# ET non des valeurs littérales
+
+print([ fruit.upper() for fruit in fruits ])
+
+print(list(map(lambda fruit: fruit.upper(), fruits)))
+# %%
+
+fruits = ["pomme", "poire", "orange", "kiwi", "fraise"]
+# les fruits qui commencent par "p"
+print([ fruit.upper() for fruit in fruits if fruit.startswith("p") ])
+
+# %%
