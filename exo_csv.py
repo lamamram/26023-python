@@ -87,3 +87,50 @@ with open("dns.csv", "r", encoding="utf-8") as rf:
         writer.writerows(rows)
         # rows = []
         rows.clear()
+
+# %%
+# pip install pandas
+import pandas as pd
+# import numpy as np
+
+URL = "https://www.afnic.fr/wp-media/ftp/documentsOpenData/202503_OPENDATA_A-NomsDeDomaineEnPointFr.zip"
+dns_df = pd.read_csv(
+    URL,
+    sep=";",
+    encoding="utf-8",
+    # nb de lignes à lire
+    nrows=1000000
+)
+
+dns_df
+# %%
+# écriture
+dns_df.to_csv(
+    "dns_1M.zip",
+    index=False, 
+    sep=";", 
+    encoding="utf-8",
+    compression={
+        "method": "zip",
+        "archive_name": "dns_1M.csv"
+    }
+)
+
+# %%
+# une analyse sur le dns
+
+dns_df = pd.read_csv(
+    "dns_1M.zip",
+    sep=";",
+    encoding="utf-8",
+    usecols=["Nom de domaine", "Pays BE"]
+)
+dns_df
+# %%
+# group by
+
+gb = dns_df.groupby("Pays BE")
+count_df = gb["Nom de domaine"].count().sort_values(ascending=False)
+count_df
+
+# %%
