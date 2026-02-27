@@ -7,3 +7,5 @@ workdir/
 log.txt
 data.*
 *.db
+dns_*.csv
+dns_*.zip
